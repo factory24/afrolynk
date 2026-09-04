@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Brand palette (Afrolynk) — token role kept; hue = brand maroon / accent amber */
+  --color-green: #8b2536; /* brand maroon (primary/lead) */
+  --color-green-dark: #6f1d2b; /* darker maroon for hovers */
+  --color-green-tint: #f7eaec; /* pale maroon wash */
+  --color-gold: #ffbc49; /* accent amber */
+  --color-gold-dark: #a15c10; /* readable deep amber for text on light */
+  --color-gold-tint: #fff3db; /* pale amber wash */
+  --color-ink: #0a1026; /* headings + dark sections + footer */
+  --color-ink-soft: #171e3d;
+  --color-body: #565b6b; /* body copy grey */
+  --color-muted: #8a8f9c;
+  --color-light: #f5f5f5; /* alt section background */
+  --color-line: #e7e7e2; /* hairline borders on light */
+  --color-paper: #ffffff;
+
+  --font-sans: var(--font-poppins), "Poppins", system-ui, sans-serif;
+  --font-display: var(--font-poppins), "Poppins", system-ui, sans-serif;
+
+  --shadow-soft: 0 18px 40px -24px rgba(10, 16, 38, 0.28);
+  --shadow-card: 0 30px 60px -35px rgba(10, 16, 38, 0.35);
+
+  --radius-card: 1rem;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+  h1 {
+    font-weight: 800;
+  }
+  h2,
+  h3 {
+    font-weight: 700;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-ink);
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-light);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cfd0cb;
+    border-radius: 999px;
+    border: 3px solid var(--color-light);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-green);
+  }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  /* Green uppercase eyebrow — original brand device */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-green);
+  }
+
+  /* Signature double-bar section title (gold over green) */
+  .section-title {
+    position: relative;
+    padding-left: 3.75rem;
+  }
+  .section-title::before,
+  .section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 2.75rem;
+    height: 3px;
+    border-radius: 2px;
+  }
+  .section-title::before {
+    top: 0.55rem;
+    background: var(--color-gold);
+  }
+  .section-title::after {
+    top: 1.15rem;
+    background: var(--color-green);
+  }
+  /* On dark sections the title text turns white via .on-dark */
+  .on-dark .section-title,
+  .section-title.on-dark {
+    color: #fff;
+  }
+
+  .display-hero {
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-size: clamp(2.5rem, 6.5vw, 4.75rem);
+  }
+  .display-section {
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  }
+
+  /* Circular icon box — original brand device */
+  .icon-box {
+    width: 4rem;
+    height: 4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    flex: none;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.4s var(--ease-out-expo);
+  }
+  .link-underline:hover {
+    background-size: 100% 2px;
+  }
+}
+
+@layer utilities {
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .marquee-track {
+    animation: marquee 34s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
