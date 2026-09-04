@@ -29,6 +29,7 @@ export default function WhatWeDoPage() {
           </>
         }
         lede={icai2.explainer}
+        trail={[{ name: "What We Do", path: "/what-we-do" }]}
       />
 
       <Section>
@@ -54,10 +55,10 @@ export default function WhatWeDoPage() {
 
       <Section>
         <Reveal>
-          <Eyebrow>Three core pillars</Eyebrow>
+          <Eyebrow>Three core pillars - ICAi² model</Eyebrow>
           <SectionTitle className="mt-5 max-w-3xl">
-            Built to turn opportunity into{" "}
-            <span className="text-green">future-ready ventures.</span>
+            One connected engine {" "}
+            <span className="text-green">for building what's next.</span>
           </SectionTitle>
         </Reveal>
 

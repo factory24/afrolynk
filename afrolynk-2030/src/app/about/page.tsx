@@ -11,6 +11,7 @@ import {
   SectionTitle,
 } from "@/components/ui";
 import { about, stats, team, values } from "@/content/site";
+import { CompassIcon, EyeIcon } from "@/components/icons";
 
 export const metadata = {
   title: "About",
@@ -30,6 +31,7 @@ export default function AboutPage() {
           </>
         }
         lede={about.intro}
+        trail={[{ name: "About", path: "/about" }]}
       />
 
       <Section>
@@ -99,22 +101,40 @@ export default function AboutPage() {
             <span className="text-green">innovation.</span>
           </SectionTitle>
         </Reveal>
-        <Stagger className="mt-12 grid gap-6 lg:grid-cols-2">
-          <StaggerItem className="rounded-2xl border border-line border-l-4 border-l-green bg-paper p-8 shadow-soft sm:p-10">
-            <IconBox tone="green">
-              <span className="text-lg font-extrabold">V</span>
-            </IconBox>
-            <h3 className="mt-6 text-2xl font-bold text-ink">Our Vision</h3>
-            <p className="mt-4 leading-relaxed text-body">{about.vision}</p>
-          </StaggerItem>
-          <StaggerItem className="rounded-2xl border border-line border-l-4 border-l-gold bg-paper p-8 shadow-soft sm:p-10">
-            <IconBox tone="gold">
-              <span className="text-lg font-extrabold">M</span>
-            </IconBox>
-            <h3 className="mt-6 text-2xl font-bold text-ink">Our Mission</h3>
-            <p className="mt-4 leading-relaxed text-body">{about.mission}</p>
-          </StaggerItem>
-        </Stagger>
+        <div className="mt-14 overflow-hidden rounded-3xl border border-line bg-paper shadow-soft">
+          <Reveal className="grid gap-6 border-b border-line p-8 sm:p-12 lg:grid-cols-[0.85fr_2fr] lg:items-start lg:gap-16">
+            <div className="flex items-start gap-5">
+              <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-green-tint text-green">
+                <EyeIcon className="h-7 w-7" />
+              </span>
+              <div>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted">
+                  01 — Vision
+                </span>
+                <h3 className="mt-1 text-2xl font-bold text-ink">Where we&apos;re going</h3>
+              </div>
+            </div>
+            <p className="text-xl font-medium leading-snug text-ink sm:text-2xl">
+              {about.vision}
+            </p>
+          </Reveal>
+          <Reveal delay={0.1} className="grid gap-6 p-8 sm:p-12 lg:grid-cols-[0.85fr_2fr] lg:items-start lg:gap-16">
+            <div className="flex items-start gap-5">
+              <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gold-tint text-gold-dark">
+                <CompassIcon className="h-7 w-7" />
+              </span>
+              <div>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted">
+                  02 — Mission
+                </span>
+                <h3 className="mt-1 text-2xl font-bold text-ink">How we get there</h3>
+              </div>
+            </div>
+            <p className="text-xl font-medium leading-snug text-ink sm:text-2xl">
+              {about.mission}
+            </p>
+          </Reveal>
+        </div>
       </Section>
 
       <Section className="bg-light">

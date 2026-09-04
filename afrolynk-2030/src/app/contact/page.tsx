@@ -1,7 +1,9 @@
 import { ContactForm } from "@/components/contact-form";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 import { Eyebrow, PageHero, Section, SectionTitle } from "@/components/ui";
-import { site } from "@/content/site";
+import { faqs, site } from "@/content/site";
+import { ClockIcon, MailIcon, MapPinIcon, PhoneIcon, socialIcons } from "@/components/icons";
+import { JsonLd, faqLd } from "@/components/structured-data";
 
 export const metadata = {
   title: "Contact",
@@ -22,6 +24,7 @@ const audiences = [
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={faqLd(faqs)} />
       <PageHero
         eyebrow="Contact"
         title={
@@ -30,6 +33,7 @@ export default function ContactPage() {
           </>
         }
         lede="Founder, corporate, investor or diaspora expert — there's a place for you in the Afrolynk community. Tell us how you'd like to work together."
+        trail={[{ name: "Contact", path: "/contact" }]}
       />
 
       <Section>
@@ -48,47 +52,67 @@ export default function ContactPage() {
             <aside className="rounded-2xl border border-line bg-paper p-7 shadow-soft sm:p-8">
               <Eyebrow>Contact details</Eyebrow>
               <dl className="mt-8 space-y-6">
-                <div>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
-                    Office
-                  </dt>
-                  <dd className="mt-2 text-lg font-semibold text-ink">
-                    {site.address.line1}
-                    <br />
-                    {site.address.line2}
-                  </dd>
+                <div className="flex items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-tint text-green">
+                    <MapPinIcon className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+                      Office
+                    </dt>
+                    <dd className="mt-1 font-semibold text-ink">
+                      {site.address.line1}
+                      <br />
+                      {site.address.line2}
+                    </dd>
+                  </div>
                 </div>
-                <div>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
-                    Email
-                  </dt>
-                  <dd className="mt-2">
-                    <a
-                      href={`mailto:${site.email}`}
-                      className="link-underline text-lg font-semibold text-green"
-                    >
-                      {site.email}
-                    </a>
-                  </dd>
+                <div className="flex items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-tint text-green">
+                    <MailIcon className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+                      Email
+                    </dt>
+                    <dd className="mt-1">
+                      <a
+                        href={`mailto:${site.email}`}
+                        className="link-underline font-semibold text-green"
+                      >
+                        {site.email}
+                      </a>
+                    </dd>
+                  </div>
                 </div>
-                <div>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
-                    Phone
-                  </dt>
-                  <dd className="mt-2">
-                    <a
-                      href={`tel:${site.phone.replace(/\s/g, "")}`}
-                      className="link-underline text-lg font-semibold text-ink"
-                    >
-                      {site.phone}
-                    </a>
-                  </dd>
+                <div className="flex items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-tint text-green">
+                    <PhoneIcon className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+                      Phone
+                    </dt>
+                    <dd className="mt-1">
+                      <a
+                        href={`tel:${site.phone.replace(/\s/g, "")}`}
+                        className="link-underline font-semibold text-ink"
+                      >
+                        {site.phone}
+                      </a>
+                    </dd>
+                  </div>
                 </div>
-                <div>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
-                    Opening hours
-                  </dt>
-                  <dd className="mt-2 text-lg font-semibold text-ink">{site.hours}</dd>
+                <div className="flex items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gold-tint text-gold-dark">
+                    <ClockIcon className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+                      Opening hours
+                    </dt>
+                    <dd className="mt-1 font-semibold text-ink">{site.hours}</dd>
+                  </div>
                 </div>
               </dl>
 
@@ -97,17 +121,21 @@ export default function ContactPage() {
                   Follow Afrolynk
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2.5">
-                  {site.socials.map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-full border border-line px-4 py-2 text-sm font-medium text-ink transition-colors hover:border-green hover:text-green"
-                    >
-                      {social.label}
-                    </a>
-                  ))}
+                  {site.socials.map((social) => {
+                    const Icon = socialIcons[social.label];
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={social.label}
+                        className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink transition-colors hover:border-green hover:bg-green hover:text-white"
+                      >
+                        {Icon ? <Icon className="h-4 w-4" /> : social.label}
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             </aside>
@@ -133,6 +161,28 @@ export default function ContactPage() {
             </StaggerItem>
           ))}
         </Stagger>
+      </Section>
+
+      <Section>
+        <Reveal className="max-w-3xl">
+          <Eyebrow>FAQ</Eyebrow>
+          <SectionTitle className="mt-5">
+            Frequently asked <span className="text-green">questions.</span>
+          </SectionTitle>
+        </Reveal>
+        <div className="mx-auto mt-12 max-w-3xl divide-y divide-line border-y border-line">
+          {faqs.map((faq) => (
+            <details key={faq.q} className="group py-5">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-ink transition-colors hover:text-green">
+                {faq.q}
+                <span className="text-2xl leading-none text-gold transition-transform duration-300 group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <p className="mt-3 leading-relaxed text-body">{faq.a}</p>
+            </details>
+          ))}
+        </div>
       </Section>
     </>
   );

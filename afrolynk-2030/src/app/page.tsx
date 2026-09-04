@@ -16,6 +16,7 @@ import {
   partners,
   sectors,
 } from "@/content/site";
+import { MailIcon, MapPinIcon, PhoneIcon } from "@/components/icons";
 
 export const metadata = {
   alternates: { canonical: "/" },
@@ -102,13 +103,13 @@ export default function HomePage() {
       {/* ── Contact-info strip ───────────────────────────── */}
       <div className="wrap -mt-px grid gap-px overflow-hidden bg-line sm:grid-cols-3">
         {[
-          { k: "Visit us", v: `${site.address.line1}, ${site.address.line2}`, icon: "⬡" },
-          { k: "Email us", v: site.email, icon: "✉", href: `mailto:${site.email}` },
-          { k: "Call us", v: site.phone, icon: "✆", href: `tel:${site.phone.replace(/\s/g, "")}` },
+          { k: "Visit us", v: `${site.address.line1}, ${site.address.line2}`, Icon: MapPinIcon },
+          { k: "Email us", v: site.email, Icon: MailIcon, href: `mailto:${site.email}` },
+          { k: "Call us", v: site.phone, Icon: PhoneIcon, href: `tel:${site.phone.replace(/\s/g, "")}` },
         ].map((item, i) => {
           const inner = (
             <div className={`h-full px-7 py-8 ${i === 1 ? "bg-green text-white" : "bg-paper"}`}>
-              <div className={`text-xl ${i === 1 ? "text-gold" : "text-green"}`}>{item.icon}</div>
+              <item.Icon className={`h-6 w-6 ${i === 1 ? "text-gold" : "text-green"}`} />
               <div className={`mt-3 text-xs font-bold uppercase tracking-[0.16em] ${i === 1 ? "text-white/80" : "text-muted"}`}>
                 {item.k}
               </div>

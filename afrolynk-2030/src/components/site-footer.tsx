@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { nav, site } from "@/content/site";
+import { MailIcon, MapPinIcon, PhoneIcon, socialIcons } from "@/components/icons";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -46,28 +47,40 @@ export function SiteFooter() {
             </span>
             <a
               href={`mailto:${site.email}`}
-              className="w-fit text-sm text-white/90 link-underline hover:text-white"
+              className="flex w-fit items-center gap-3 text-sm text-white/90 transition-colors hover:text-white"
             >
+              <MailIcon className="h-4 w-4 shrink-0 text-gold" />
               {site.email}
             </a>
             <a
               href={`tel:${site.phone.replace(/\s/g, "")}`}
-              className="w-fit text-sm text-white/90 link-underline hover:text-white"
+              className="flex w-fit items-center gap-3 text-sm text-white/90 transition-colors hover:text-white"
             >
+              <PhoneIcon className="h-4 w-4 shrink-0 text-gold" />
               {site.phone}
             </a>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {site.socials.map((s) => (
-                <a
-                  key={s.href}
-                  href={s.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full border border-white/50 px-3 py-1 text-xs text-white transition-colors hover:bg-white hover:text-green"
-                >
-                  {s.label}
-                </a>
-              ))}
+            <span className="flex w-fit items-start gap-3 text-sm text-white/90">
+              <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+              <span>
+                {site.address.line1}, {site.address.line2}
+              </span>
+            </span>
+            <div className="mt-3 flex flex-wrap gap-2.5">
+              {site.socials.map((s) => {
+                const Icon = socialIcons[s.label];
+                return (
+                  <a
+                    key={s.href}
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={s.label}
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 text-white transition-colors hover:bg-white hover:text-green"
+                  >
+                    {Icon ? <Icon className="h-4 w-4" /> : s.label}
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>

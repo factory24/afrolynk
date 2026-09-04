@@ -1,0 +1,27 @@
+# Afrolynk
+
+> Afrolynk is an impact venture and community organisation founded in Berlin in 2016 by Moses Acquah. It bridges the African and European startup ecosystems — connecting African founders, entrepreneurs and innovation ecosystems with the experts, corporates, investors and markets they need to grow. Tagline: Innovate · Connect · Accelerate.
+
+## Key facts
+
+- Founded: 2016, Berlin, Germany
+- Founder: Moses Acquah (ex-Nokia, ex-Microsoft Ghana)
+- HQ: Neue Bahnhofstraße 28, 10245 Berlin, Germany
+- Contact: info@afrolynk.com · +49 1520 9295402
+- Focus: African & Afrocentric startups, diaspora innovation, venture building, market access
+- Model (ICAi²): three core pillars — Innovate, Connect, Accelerate — with Accelerate powered by two disciplines, Intelligence and Impact.
+- Sectors: AI, fintech, climate tech, water & sanitation, energy, agriculture, healthtech, edtech, digital commerce, financial inclusion.
+- Programs: Ventures Studio, Lynkspace Hub, Factory24.
+
+## Pages
+
+- [Home](https://afrolynk.com/): Overview of Afrolynk, what we do, programs, stats and partners.
+- [About](https://afrolynk.com/about): Who we are, vision, mission, values and team.
+- [What We Do](https://afrolynk.com/what-we-do): The ICAi² model — Innovate, Connect, Accelerate + Intelligence & Impact — plus flagship programs and focus sectors.
+- [Projects](https://afrolynk.com/projects): Projects, initiatives, testimonials and partners.
+- [History](https://afrolynk.com/history): Afrolynk's story and timeline from 2016 to today, with media and press.
+- [Contact](https://afrolynk.com/contact): Get in touch and frequently asked questions.
+
+## Resources
+
+- [Sitemap](https://afrolynk.com/sitemap.xml)

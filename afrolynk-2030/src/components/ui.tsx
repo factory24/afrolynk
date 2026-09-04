@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { JsonLd, breadcrumbLd } from "@/components/structured-data";
 
 export function Section({
   children,
@@ -85,17 +86,48 @@ export function PageHero({
   eyebrow,
   title,
   lede,
+  trail,
 }: {
   eyebrow: string;
   title: ReactNode;
   lede: string;
+  /** Breadcrumb trail (excluding Home). Renders a visible nav + matching JSON-LD. */
+  trail?: { name: string; path: string }[];
 }) {
   return (
     <header className="relative overflow-hidden bg-light grain">
       {/* soft brand wash */}
       <div className="pointer-events-none absolute -right-32 -top-24 h-96 w-96 rounded-full bg-green-tint blur-3xl" />
       <div className="pointer-events-none absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-gold-tint blur-3xl" />
-      <div className="wrap relative pt-40 pb-16 sm:pt-44 sm:pb-20">
+      <div className="wrap relative pt-32 pb-16 sm:pt-36 sm:pb-20">
+        {trail && trail.length > 0 ? (
+          <>
+            <JsonLd data={breadcrumbLd(trail)} />
+            <nav aria-label="Breadcrumb" className="mb-6">
+              <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted">
+                <li>
+                  <Link href="/" className="transition-colors hover:text-green">
+                    Home
+                  </Link>
+                </li>
+                {trail.map((item, i) => (
+                  <li key={item.path} className="flex items-center gap-2">
+                    <span aria-hidden="true" className="text-muted/50">/</span>
+                    {i === trail.length - 1 ? (
+                      <span aria-current="page" className="text-green">
+                        {item.name}
+                      </span>
+                    ) : (
+                      <Link href={item.path} className="transition-colors hover:text-green">
+                        {item.name}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          </>
+        ) : null}
         <Eyebrow>{eyebrow}</Eyebrow>
         <h1 className="display-hero mt-5 max-w-4xl">{title}</h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-body">{lede}</p>

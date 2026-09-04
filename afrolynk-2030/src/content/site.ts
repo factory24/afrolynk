@@ -480,3 +480,50 @@ export const partners = {
 /* ── Ecosystem peers (context for positioning, optional) ── */
 export const partnersNote =
   "Afrolynk works alongside a global ecosystem of hubs, accelerators, corporates, development partners and investors.";
+
+/* ── Frequently asked questions (visible + FAQPage schema) ── */
+export type Faq = { q: string; a: string };
+
+export const faqs: Faq[] = [
+  {
+    q: "What is Afrolynk?",
+    a: "Afrolynk is an impact venture and community organisation founded in Berlin in 2016 that bridges the African and European startup ecosystems — connecting African founders, entrepreneurs and innovation ecosystems with the experts, corporates, investors and markets they need to grow.",
+  },
+  {
+    q: "Where is Afrolynk based?",
+    a: "Afrolynk is headquartered in Berlin, Germany, at Neue Bahnhofstraße 28, 10245 Berlin, with an always-on digital community and activities across Africa, Europe, the Americas and Asia.",
+  },
+  {
+    q: "Who founded Afrolynk and when?",
+    a: "Afrolynk was founded in 2016 by Moses Acquah, a Ghanaian-born technology leader who previously worked as Innovation Manager at Nokia's Research Center for West Africa and as Ghana Market Manager at Microsoft.",
+  },
+  {
+    q: "What does Afrolynk do?",
+    a: "Afrolynk works across three core pillars — Innovate, Connect and Accelerate — helping founders build future-ready ventures, activating a global Africa-linked network, and moving ventures from concept to pilots, markets and investment. Accelerate is powered by two disciplines: Intelligence and Impact.",
+  },
+  {
+    q: "Who can work with Afrolynk?",
+    a: "Founders, corporates, investors, diaspora experts, donors and foundations, and government or institutional partners can all engage with Afrolynk through its programs, conference, community and venture-building support.",
+  },
+  {
+    q: "Which sectors does Afrolynk focus on?",
+    a: "Afrolynk prioritises AI, fintech, climate tech, water and sanitation, energy, agriculture, healthtech, edtech, digital commerce and financial inclusion.",
+  },
+];
+
+/** Topics Afrolynk is an authority on — used for Organization `knowsAbout` (topical authority for AI/search). */
+export const knowsAbout = [
+  "African startups",
+  "startup ecosystem development",
+  "venture building",
+  "startup accelerator programs",
+  "diaspora innovation",
+  "Africa–Europe trade and innovation",
+  "market access for African ventures",
+  "impact investing",
+  "digital skills training",
+  "AI readiness",
+  "fintech",
+  "climate tech",
+  "entrepreneurship in Africa",
+];

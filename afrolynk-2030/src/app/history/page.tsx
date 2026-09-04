@@ -29,6 +29,7 @@ export default function HistoryPage() {
           </>
         }
         lede="What began as a conference bridging African and European founders has grown into a year-round innovation community."
+        trail={[{ name: "History", path: "/history" }]}
       />
 
       <Section>

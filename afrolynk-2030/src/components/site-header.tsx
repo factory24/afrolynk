@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { nav, site } from "@/content/site";
+import { MailIcon, PhoneIcon, socialIcons } from "@/components/icons";
 
 function Logo({ className = "h-7" }: { className?: string }) {
   return (
@@ -45,27 +46,31 @@ export function SiteHeader() {
               href={`mailto:${site.email}`}
               className="flex items-center gap-2 hover:text-gold"
             >
-              <span className="text-gold">✉</span> {site.email}
+              <MailIcon className="h-4 w-4 text-gold" /> {site.email}
             </a>
             <a
               href={`tel:${site.phone.replace(/\s/g, "")}`}
               className="flex items-center gap-2 hover:text-gold"
             >
-              <span className="text-gold">✆</span> {site.phone}
+              <PhoneIcon className="h-4 w-4 text-gold" /> {site.phone}
             </a>
           </div>
           <div className="flex items-center gap-4">
-            {site.socials.map((s) => (
-              <a
-                key={s.href}
-                href={s.href}
-                target="_blank"
-                rel="noreferrer"
-                className="text-white/70 hover:text-gold"
-              >
-                {s.label}
-              </a>
-            ))}
+            {site.socials.map((s) => {
+              const Icon = socialIcons[s.label];
+              return (
+                <a
+                  key={s.href}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={s.label}
+                  className="text-white/70 transition-colors hover:text-gold"
+                >
+                  {Icon ? <Icon className="h-4 w-4" /> : s.label}
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>

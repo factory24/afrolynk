@@ -28,6 +28,7 @@ export default function ProjectsPage() {
           </>
         }
         lede="From flagship conferences to skills training and innovation challenges — a look at what the Afrolynk community has built."
+        trail={[{ name: "Projects", path: "/projects" }]}
       />
 
       <Section>

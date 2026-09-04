@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { knowsAbout } from "@/content/site";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -70,31 +71,78 @@ export const metadata: Metadata = {
   },
 };
 
-const organizationJsonLd = {
+const SITE_URL = "https://afrolynk.com";
+
+/**
+ * Consolidated site-wide structured data (@graph with stable @id anchors).
+ * Emitted once in the root layout — page-level scripts reference these @ids.
+ */
+const siteJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Afrolynk",
-  url: "https://afrolynk.com",
-  logo: "https://afrolynk.com/img/Afrolynk-Logo-White.png",
-  description:
-    "A bridge between the African and European startup ecosystems — connecting founders, experts, investors and corporates to build ventures that create value for good.",
-  foundingDate: "2016",
-  founder: { "@type": "Person", name: "Moses Acquah" },
-  email: "info@afrolynk.com",
-  telephone: "+49 1520 9295402",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Neue Bahnhofstraße 28",
-    postalCode: "10245",
-    addressLocality: "Berlin",
-    addressCountry: "DE",
-  },
-  sameAs: [
-    "https://www.linkedin.com/company/afrolynk/",
-    "https://www.facebook.com/Afrolynk",
-    "https://twitter.com/afrolynk",
-    "https://www.instagram.com/afrolynk_/",
-    "https://www.youtube.com/channel/UCjNXmCZGJWShsa5SPhsJtDg",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Afrolynk",
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        "@id": `${SITE_URL}/#logo`,
+        url: `${SITE_URL}/img/Afrolynk-Logo-White.png`,
+        width: 200,
+        height: 54,
+        caption: "Afrolynk",
+      },
+      image: { "@id": `${SITE_URL}/#logo` },
+      slogan: "Innovate · Connect · Accelerate",
+      description:
+        "A bridge between the African and European startup ecosystems — connecting founders, experts, investors and corporates to build ventures that create value for good.",
+      foundingDate: "2016",
+      foundingLocation: {
+        "@type": "Place",
+        name: "Berlin, Germany",
+      },
+      founder: {
+        "@type": "Person",
+        name: "Moses Acquah",
+        jobTitle: "Founder & CEO",
+      },
+      email: "info@afrolynk.com",
+      telephone: "+49 1520 9295402",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Neue Bahnhofstraße 28",
+        postalCode: "10245",
+        addressLocality: "Berlin",
+        addressCountry: "DE",
+      },
+      areaServed: ["Africa", "Europe", "Americas", "Asia"],
+      knowsAbout,
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: "info@afrolynk.com",
+        telephone: "+49 1520 9295402",
+        availableLanguage: ["English"],
+      },
+      sameAs: [
+        "https://www.linkedin.com/company/afrolynk/",
+        "https://www.facebook.com/Afrolynk",
+        "https://twitter.com/afrolynk",
+        "https://www.instagram.com/afrolynk_/",
+        "https://www.youtube.com/channel/UCjNXmCZGJWShsa5SPhsJtDg",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "Afrolynk",
+      description:
+        "Bridging African and European innovation since 2016. Innovate · Connect · Accelerate.",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      inLanguage: "en",
+    },
   ],
 };
 
@@ -104,7 +152,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-paper text-body font-sans selection:bg-gold selection:text-ink">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
         <SiteHeader />
         <main className="flex-1">{children}</main>
