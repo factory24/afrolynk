@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+STAGE_DIR=/opt/afrolynk-stage
+LIVE_DIR=/opt/afrolynk
+
+cd "$STAGE_DIR"
+npm ci
+npm run build
+
+sudo /usr/bin/systemctl stop afrolynk
+trap 'sudo /usr/bin/systemctl start afrolynk' EXIT
+rsync -a --delete "$STAGE_DIR/" "$LIVE_DIR/"
+sudo /usr/bin/systemctl start afrolynk
+trap - EXIT

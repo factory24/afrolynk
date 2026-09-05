@@ -1,1 +1,4 @@
-.deploy/
+.deploy/afrolynk_ci
+.deploy/afrolynk_ci.pub
+.deploy/afrolynk_deploy
+.deploy/afrolynk_deploy.pub
