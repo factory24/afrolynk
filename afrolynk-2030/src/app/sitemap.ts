@@ -4,7 +4,7 @@ const base = "https://afrolynk.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const routes = ["", "/about", "/what-we-do", "/projects", "/history", "/contact"];
+  const routes = ["", "/about", "/what-we-do", "/projects", "/history", "/contact", "/privacy"];
   return routes.map((path) => ({
     url: `${base}${path}`,
     lastModified: now,

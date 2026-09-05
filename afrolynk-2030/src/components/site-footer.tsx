@@ -87,7 +87,12 @@ export function SiteFooter() {
 
         <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-white/30 pt-6 text-xs text-white/90 sm:flex-row sm:items-center">
           <span>© {year} Afrolynk. All rights reserved.</span>
-          <span>Berlin · Africa–global · Since 2016</span>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy" className="link-underline hover:text-white">
+              Privacy Notice
+            </Link>
+            <span>Berlin · Africa–global · Since 2016</span>
+          </div>
         </div>
       </div>
     </footer>
