@@ -261,7 +261,7 @@ export const projects: Project[] = [
     category: "Flagship Event",
     year: "2016–2020",
     blurb:
-      "Our flagship gathering — bringing African and European founders, investors, corporates and policy makers together in Berlin, hosted at Microsoft and beyond.",
+      "Our flagship gathering — bringing African and European founders, investors, corporates and policy makers together each year, hosted at Microsoft and beyond.",
     image: "/img/blog-3.jpg",
   },
   {
@@ -325,14 +325,14 @@ export const timeline: TimelineEntry[] = [
     year: "2016",
     title: "The beginning in Berlin",
     body: "Afrolynk was founded by Moses Acquah in Berlin, starting out with a focus on providing expert support to young African entrepreneurs and hosting the first annual Afrolynk Conference.",
-    items: ["First annual Afrolynk Conference in Berlin", "Expert support for young African founders"],
+    items: ["First annual Afrolynk Conference", "Expert support for young African founders"],
     image: "/img/carousel-2.jpg",
   },
   {
     year: "2017",
     title: "Conference at Microsoft Berlin",
     body: "The Afrolynk Conference was hosted at Microsoft Berlin, with workshops and pitch sessions across Fintech, HealthTech and Renewable Energy.",
-    items: ["Annual Afrolynk Conference at Microsoft Berlin", "Fintech · HealthTech · Renewable Energy tracks"],
+    items: ["Annual Afrolynk Conference at Microsoft", "Fintech · HealthTech · Renewable Energy tracks"],
     image: "/img/blog-2.jpg",
   },
   {
@@ -344,7 +344,7 @@ export const timeline: TimelineEntry[] = [
       "Afrolynk Conference at Microsoft Berlin — Empowerment, Migration & Diversity, Future of Technology",
       "Start-up Night Ghana in Accra (with enpact & TANOE Network)",
       "Start-up Night Finland in Helsinki (AfrolynkHel)",
-      "EEP Workshop with AfDB, BMZ & GIZ in Berlin",
+      "EEP Workshop with AfDB, BMZ & GIZ",
       "Slush side-event: \u201cConnecting Drivers of Change\u201d",
       "Represented the YIWG at the African Investment Forum",
     ],
@@ -355,7 +355,7 @@ export const timeline: TimelineEntry[] = [
     title: "Africa Tech & Entrepreneurship Week",
     body: "The 4th edition grew into a full week of capacity-building — workshops, ecosystem tours and a Startup Night — under the theme \u201cStrategic Partnerships for Sustainable Growth\u201d, held in September at Microsoft Berlin.",
     items: [
-      "Afrolynk Conference, Berlin (September)",
+      "Afrolynk Conference (September)",
       "WIDU project",
       "The Ghana Hub · Mentorship programs",
       "Deeper African presence & international ecosystem ties",
@@ -491,7 +491,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "Where is Afrolynk based?",
-    a: "Afrolynk is headquartered in Berlin, Germany, at Neue Bahnhofstraße 28, 10245 Berlin, with an always-on digital community and activities across Africa, Europe, the Americas and Asia.",
+    a: "Afrolynk is headquartered in Berlin, Germany, at Neue Bahnhofstraße 28, with an always-on digital community and activities across Africa, Europe, the Americas and Asia.",
   },
   {
     q: "Who founded Afrolynk and when?",
