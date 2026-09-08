@@ -37,7 +37,7 @@ export default function HistoryPage() {
           <Reveal>
             <Eyebrow>How it started</Eyebrow>
             <SectionTitle className="mt-5 max-w-xl">
-              A bridge built from <span className="text-green">Berlin outward.</span>
+              A bridge built from <span className="text-green">both ends.</span>
             </SectionTitle>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-body">
               Afrolynk was founded in 2016 by Moses Acquah, a Ghanaian-born technology leader
@@ -83,7 +83,7 @@ export default function HistoryPage() {
             Moments that made the <span className="text-green">connection stronger.</span>
           </SectionTitle>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-body">
-            From one conference in Berlin to a community with an always-on global outlook.
+            From one conference to a community with an always-on global outlook.
           </p>
         </Reveal>
 

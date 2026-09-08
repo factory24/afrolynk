@@ -76,7 +76,7 @@ export default function HomePage() {
                 Since <span className="text-gold">2016</span>
               </div>
               <div className="mt-1 text-xs font-semibold uppercase tracking-widest text-white/80">
-                Berlin roots · Africa–global reach
+                Africa–Europe · Global reach
               </div>
             </div>
           </Reveal>

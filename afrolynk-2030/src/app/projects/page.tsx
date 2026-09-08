@@ -39,7 +39,7 @@ export default function ProjectsPage() {
               Built with community, designed for <span className="text-green">impact.</span>
             </SectionTitle>
             <p className="mt-5 text-lg leading-relaxed text-body">
-              From Berlin to communities across Africa and Europe, these initiatives connect people, skills and opportunity.
+              Across communities in Africa and Europe, these initiatives connect people, skills and opportunity.
             </p>
           </Reveal>
           <Reveal delay={0.1}>
